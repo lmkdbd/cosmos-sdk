@@ -1,0 +1,14 @@
+syntax = "proto3";
+package cosmos.testmodule.v1beta1;
+
+import "amino/amino.proto";
+import "gogoproto/gogo.proto";
+import "cosmos/testmodule/v1beta1/params.proto";
+
+option go_package = "github.com/cosmos/cosmos-sdk/x/testmodule/types";
+
+// GenesisState defines the testmodule module's genesis state.
+message GenesisState {
+  // params defines all the parameters of the module.
+  Params params = 1 [(gogoproto.nullable) = false, (amino.dont_omitempty) = true];
+}

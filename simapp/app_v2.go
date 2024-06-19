@@ -45,6 +45,7 @@ import (
 	paramstypes "github.com/cosmos/cosmos-sdk/x/params/types"
 	slashingkeeper "github.com/cosmos/cosmos-sdk/x/slashing/keeper"
 	stakingkeeper "github.com/cosmos/cosmos-sdk/x/staking/keeper"
+	testmodulekeeper "github.com/cosmos/cosmos-sdk/x/testmodule/keeper"
 )
 
 // DefaultNodeHome default home directories for the application daemon
@@ -83,6 +84,7 @@ type SimApp struct {
 	NFTKeeper             nftkeeper.Keeper
 	ConsensusParamsKeeper consensuskeeper.Keeper
 	CircuitBreakerKeeper  circuitkeeper.Keeper
+	TestmoduleKeeper      testmodulekeeper.Keeper
 
 	// simulation manager
 	sm *module.SimulationManager

@@ -4,8 +4,8 @@ import (
 	"context"
 
 	storetypes "cosmossdk.io/store/types"
-	circuittypes "cosmossdk.io/x/circuit/types"
 	upgradetypes "cosmossdk.io/x/upgrade/types"
+	testmoduletypes "github.com/cosmos/cosmos-sdk/x/testmodule/types"
 
 	"github.com/cosmos/cosmos-sdk/types/module"
 )
@@ -16,7 +16,7 @@ import (
 // NOTE: This upgrade defines a reference implementation of what an upgrade
 // could look like when an application is migrating from Cosmos SDK version
 // v0.47.x to v0.50.x.
-const UpgradeName = "v047-to-v050"
+const UpgradeName = "test-module"
 
 func (app SimApp) RegisterUpgradeHandlers() {
 	app.UpgradeKeeper.SetUpgradeHandler(
@@ -34,7 +34,7 @@ func (app SimApp) RegisterUpgradeHandlers() {
 	if upgradeInfo.Name == UpgradeName && !app.UpgradeKeeper.IsSkipHeight(upgradeInfo.Height) {
 		storeUpgrades := storetypes.StoreUpgrades{
 			Added: []string{
-				circuittypes.ModuleName,
+				testmoduletypes.ModuleName,
 			},
 		}
 
