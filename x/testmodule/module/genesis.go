@@ -13,6 +13,9 @@ func InitGenesis(ctx sdk.Context, k keeper.Keeper, genState types.GenesisState) 
 	if err := k.Params.Set(ctx, genState.Params); err != nil {
 		return err
 	}
+	if err := k.TestStruct.Set(ctx, genState.TestStruct); err != nil {
+		return err
+	}
 	return nil
 }
 
@@ -25,6 +28,9 @@ func ExportGenesis(ctx sdk.Context, k keeper.Keeper) (*types.GenesisState, error
 		return nil, err
 	}
 	// this line is used by starport scaffolding # genesis/module/export
-
+	genesis.TestStruct, err = k.TestStruct.Get(ctx)
+	if err != nil {
+		return nil, err
+	}
 	return genesis, nil
 }

@@ -9,10 +9,15 @@ import (
 
 func (k *Keeper) EndBlocker(ctx context.Context) error {
 	sdkCtx := sdk.UnwrapSDKContext(ctx)
-	new_params := types.Params{
-		TestParam: "test",
+	// new_params := types.Params{
+	// 	TestParam: "test",
+	// }
+	// _ = k.Params.Set(sdkCtx, new_params)
+
+	new_params := types.TestStruct{
+		Param2: "test",
 	}
-	_ = k.Params.Set(sdkCtx, new_params)
+	_ = k.TestStruct.Set(sdkCtx, new_params)
 	// if err != nil {
 	// 	return err
 	// }

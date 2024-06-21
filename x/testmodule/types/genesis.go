@@ -12,6 +12,9 @@ func DefaultGenesis() *GenesisState {
 		Params: Params{
 			TestParam: "aaa",
 		},
+		TestStruct: TestStruct{
+			Param2: "bbb",
+		},
 	}
 }
 

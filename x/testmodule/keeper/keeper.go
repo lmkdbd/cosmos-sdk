@@ -22,7 +22,8 @@ type (
 		// should be the x/gov module account.
 		authority string
 
-		Params collections.Item[types.Params]
+		Params     collections.Item[types.Params]
+		TestStruct collections.Item[types.TestStruct]
 	}
 )
 
@@ -45,6 +46,7 @@ func NewKeeper(
 		authority:    authority,
 		logger:       logger,
 		Params:       collections.NewItem(sb, types.ParamsKey, "params", codec.CollValue[types.Params](cdc)),
+		TestStruct:   collections.NewItem(sb, types.TestStructKey, "test_struct", codec.CollValue[types.TestStruct](cdc)),
 	}
 }
 

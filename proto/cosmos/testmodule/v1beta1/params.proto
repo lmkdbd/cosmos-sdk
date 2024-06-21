@@ -13,3 +13,7 @@ message Params {
 
   string test_param = 1;
 }
+
+message TestStruct {
+  string param2 = 1;
+}

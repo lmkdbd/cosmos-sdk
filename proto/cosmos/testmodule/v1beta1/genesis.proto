@@ -10,5 +10,6 @@ option go_package = "github.com/cosmos/cosmos-sdk/x/testmodule/types";
 // GenesisState defines the testmodule module's genesis state.
 message GenesisState {
   // params defines all the parameters of the module.
-  Params params = 1 [(gogoproto.nullable) = false, (amino.dont_omitempty) = true];
+  Params     params      = 1 [(gogoproto.nullable) = false, (amino.dont_omitempty) = true];
+  TestStruct test_struct = 2 [(gogoproto.nullable) = false, (amino.dont_omitempty) = true];
 }
